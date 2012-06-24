@@ -1,0 +1,3 @@
+#[link(name = "rustyjavazone", vers = "1.0", author = "Reidar Sollid")];
+
+mod	port_channel;
