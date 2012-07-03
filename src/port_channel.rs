@@ -2,10 +2,10 @@
 use std;
 import print = io:: println;
 
-fn main(){
+fn main() {
   let port = comm:: port::<str>();
   let chan = comm:: chan::<str>(port);
-  task:: spawn{||
+  do task:: spawn || { 
     let result = compute_some();
     comm:: send(chan, result);
   }
