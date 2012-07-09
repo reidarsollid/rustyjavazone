@@ -1,11 +1,12 @@
 /*This file is generated with RustyCage*/
 use std;
-import print = io:: println;
+
+import print = io::println;
 
 fn main() {
-  let port = comm:: port::<str>();
-  let chan = comm:: chan::<str>(port);
-  do task:: spawn || { 
+  let port = comm::port::<str>();
+  let chan = comm::chan::<str>(port);
+  do task::spawn { 
     let result = compute_some();
     comm:: send(chan, result);
   }
