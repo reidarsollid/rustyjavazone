@@ -1,8 +1,7 @@
 /*This file is generated with RustyCage*/
 use std;
 
-import comm::port;
-import comm::recv;
+import pipes::{stream, chan, port};
 import io::println;
 
 const PI: float = 3.14159265;
@@ -14,18 +13,18 @@ enum message {
 }
 
 fn area(from: port<message>) {
-    let msg = recv(from);
+    let msg = from.recv();
     loop {	
-        alt msg {
-          rectangle(width, height) {
+        match msg {
+          rectangle(width, height) => {
             let result = width * height;
             println(#fmt("%i",result));		
           }
-          circle(radius) {
+          circle(radius) => {
             let result = PI * radius;
             println(#fmt("%f",result));
           }			
-          end {
+          end => {
             println("Bye");
           }			
         }
