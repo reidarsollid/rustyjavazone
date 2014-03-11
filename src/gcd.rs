@@ -1,10 +1,14 @@
+/******
+ * This file is generated with RustyCage
+ */
 fn gcd(a: int,b: int) -> int {
   match b {
-	0 =>  return a,
-	_ => return gcd(b,(a%b)),
+	  0 =>  return a,
+	  _ => return gcd(b,(a%b)),
   }
 }
 
+#[main]
 fn main() {
-  io::println(#fmt("GCD number %i", gcd(259,111)));
+  println!("GCD number {}", gcd(259,111));
 }

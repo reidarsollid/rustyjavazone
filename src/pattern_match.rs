@@ -1,26 +1,26 @@
 /*This file is generated with RustyCage*/
 fn main() {
     io::println("Hello world");
-    receive(text(~"Hello match"));
-    receive(number(22));
-    receive(end);
+    receive(Text(~"Hello match"));
+    receive(Number(22));
+    receive(End);
 }
 
-enum message {
-    end,
-    text(~str),
-    number(int)
+enum Message {
+    End,
+    Text(~str),
+    Number(int)
 }
 
-fn receive(msg: message) {
+fn receive(msg: Message) {
     match msg {
-      end => {
+      End => {
         io::println("The end");
       }
-      text(aText) => {
+      Text(aText) => {
         io::println(aText);
       }
-      number(num) => {
+      Number(num) => {
         io::println(#fmt("%d", num));
       }
     }

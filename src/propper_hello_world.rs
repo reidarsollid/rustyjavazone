@@ -1,9 +1,12 @@
-/*This file is generated with RustyCage*/
-
-fn main() {
-  task::spawn(hello_world);
+/******
+ * This file is generated with RustyCage
+ */
+fn run() {
+	//Spawn a new task
+  spawn(hello);
 }
 
-fn hello_world() {
-  io:: println("Hello World");
+#[main]
+fn hello() {
+  println("Hello world");
 }
